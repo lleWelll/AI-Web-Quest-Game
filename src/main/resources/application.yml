@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: web_quest_game
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${MYSQL_LOCALHOST_URL}/webQuestGame
+    username: ${MYSQL_LOCALHOST_LOGIN}
+    password: ${MYSQL_LOCALHOST_PASSWORD}
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+    database-platform: org.hibernate.dialect.MySQLDialect
+
+  thymeleaf:
+    enabled: true
+    suffix: .html
+    mode: HTML
+    cache: false
+
+server:
+  port: 8080
+logging:
+  file:
+    name: logs/app.log
+  level:
+    root: info

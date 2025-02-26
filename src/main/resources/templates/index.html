@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quest Game</title>
+    <link rel="stylesheet" th:href="@{/style.css}"/>
+</head>
+<body>
+    <div class="container">
+        <h2 th:text="${currentSituation.getDescription()}">description</h2>
+        <div class="button-container">
+            <div th:each="choice, iterstat : ${currentSituation.getChoices()}">
+               <button th:attr="onclick='window.location=\'/story?index=' + ${iterstat.index} + '\''">
+                   <span th:text="${choice.getDescription()}"></span>
+               </button>
+            </div>
+            <button onclick="window.location='/story?index=-1'">Go Back</button>
+        </div>
+    </div>
+</body>
+</html>

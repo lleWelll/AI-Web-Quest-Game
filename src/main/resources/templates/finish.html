@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Finish</title>
+    <link rel="stylesheet" th:href="@{style.css}">
+</head>
+<body>
+<div class="container">
+    <h1 th:if="${finishType == 'victory'}">Congrats, you won!</h1>
+    <h1 th:unless="${finishType == 'victory'}">You lost</h1>
+
+    <h3 th:text="${currentSituation.getDescription()}"></h3>
+    <button onclick="window.location='/restart'">Start Again</button>
+    <button onclick="window.location='/restartStory'">Start again with this story</button>
+    <button onclick="window.location='/download'">Download this story</button>
+</div>
+</body>
+</html>
