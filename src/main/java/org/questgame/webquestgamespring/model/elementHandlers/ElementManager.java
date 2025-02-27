@@ -50,8 +50,8 @@ public class ElementManager {
 		return elementStack.peek().getChoices();
 	}
 
-	public ElementManager(Story STORY) {
+	public ElementManager(Story story) {
 		log.info("Element Manager created");
-		this.STORY = STORY;
+		this.STORY = story;
 	}
 }

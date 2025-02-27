@@ -25,7 +25,7 @@ public class ChatGPTHandler {
 
 	private static TextRequest buildRequest(String prompt) {
 		return new TextRequestBuilder()
-				.setTemperature(0.2)
+				.setTemperature(1d)
 				.setModel(ModelType.GPT4o)
 				.setSystemContent(PROMPT_CONTEXT_FOR_GENERATING_MAIN_STORY + " " + PERFECT_STORY_EXAMPLE)
 				.setUserContent(prompt)
