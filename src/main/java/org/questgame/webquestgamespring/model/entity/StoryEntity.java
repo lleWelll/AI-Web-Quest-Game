@@ -1,9 +1,11 @@
-package org.questgame.webquestgamespring.model;
+package org.questgame.webquestgamespring.model.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.Setter;
 import org.bson.types.Binary;
+import org.questgame.webquestgamespring.model.Story;
 import org.questgame.webquestgamespring.util.StorySerializer;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -13,9 +15,16 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(collection = "quests")
 public class StoryEntity {
 	private String id;
+
+	private String name;
+
+	private String description;
+
+	private Long userId;
+
 	private Binary elements;
 
-	public StoryEntity(Story story) {
-		this.elements = new Binary(StorySerializer.serialize(story.getSTORY_ELEMENTS()));
+	public StoryEntity(Binary elements) {
+		this.elements = elements;
 	}
 }

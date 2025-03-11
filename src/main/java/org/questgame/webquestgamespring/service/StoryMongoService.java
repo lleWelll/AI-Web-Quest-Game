@@ -1,7 +1,6 @@
 package org.questgame.webquestgamespring.service;
 
-import org.questgame.webquestgamespring.model.Story;
-import org.questgame.webquestgamespring.model.StoryEntity;
+import org.questgame.webquestgamespring.model.entity.StoryEntity;
 import org.questgame.webquestgamespring.repository.StoryRepository;
 import org.springframework.stereotype.Service;
 
