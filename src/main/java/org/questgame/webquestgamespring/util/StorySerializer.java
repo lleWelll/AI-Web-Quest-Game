@@ -11,6 +11,18 @@ import java.io.*;
 @Component
 public class StorySerializer {
 
+	public static byte[] serialize(Object obj) {
+		try (ByteArrayOutputStream bos = new ByteArrayOutputStream();
+			 ObjectOutputStream oos = new ObjectOutputStream(bos)) {
+			oos.writeObject(obj);
+			return bos.toByteArray();
+		} catch (IOException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+
+
 	public static void serialize(Story story, OutputStream outputStream) {
 		log.info("Serializing Story on outputStream");
 		try (ObjectOutputStream objectOut = new ObjectOutputStream(outputStream)) {
@@ -20,16 +32,23 @@ public class StorySerializer {
 			throw new SerializationException("Error in serializing", e);
 		}
 	}
-
+	public static Object deserializeFromFile(byte[] bytes) {
+		try (ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
+			 ObjectInputStream ois = new ObjectInputStream(bis)) {
+			return ois.readObject();
+		} catch (IOException | ClassNotFoundException e) {
+			throw new SerializationException(e);
+		}
+	}
 	public static Story getStoryFromFile(String path) {
 		if (path == null) {
 			log.error("File is null");
 			throw new NullPointerException("File is null");
 		}
-		return deserialize(path);
+		return deserializeFromFile(path);
 	}
 
-	private static Story deserialize(String path) {
+	private static Story deserializeFromFile(String path) {
 		log.info("Deserializing Story object from file: ");
 		try (FileInputStream fileIn = new FileInputStream(path);
 			 ObjectInputStream objectIn = new ObjectInputStream(fileIn)) {

@@ -2,10 +2,12 @@ package org.questgame.webquestgamespring.controller;
 
 import org.questgame.webquestgamespring.model.Story;
 import org.questgame.webquestgamespring.model.StoryEntity;
+import org.questgame.webquestgamespring.model.storyElements.Element;
 import org.questgame.webquestgamespring.util.StorySerializer;
 import org.questgame.webquestgamespring.service.StoryMongoService;
-import org.questgame.webquestgamespring.util.Deserializer;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.Map;
 
 @RestController()
 @RequestMapping("/test")
@@ -21,7 +23,7 @@ public class TestController {
 
 	@GetMapping("/get/{id}")
 	public String getById(@PathVariable String id) {
-		Story s = new Story(Deserializer.deserialize(service.getById(id).getElements().getData()));
+		Story s = new Story((Map<String, Element>) StorySerializer.deserializeFromFile(service.getById(id).getElements().getData()));
 		return s.getSTORY_ELEMENTS().toString();
 
 	}
