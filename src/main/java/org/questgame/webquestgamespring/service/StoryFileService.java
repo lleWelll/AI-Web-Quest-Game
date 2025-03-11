@@ -7,7 +7,7 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import lombok.extern.slf4j.Slf4j;
 import org.questgame.webquestgamespring.model.Story;
-import org.questgame.webquestgamespring.model.StorySerializer;
+import org.questgame.webquestgamespring.util.StorySerializer;
 import org.springframework.stereotype.Service;
 
 import java.io.File;

@@ -1,6 +1,7 @@
-package org.questgame.webquestgamespring.model;
+package org.questgame.webquestgamespring.util;
 
 import lombok.extern.slf4j.Slf4j;
+import org.questgame.webquestgamespring.model.Story;
 import org.questgame.webquestgamespring.model.exceptions.SerializationException;
 import org.springframework.stereotype.Component;
 
