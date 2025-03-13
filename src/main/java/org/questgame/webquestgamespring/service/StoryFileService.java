@@ -8,6 +8,8 @@ import jakarta.servlet.http.Part;
 import lombok.extern.slf4j.Slf4j;
 import org.questgame.webquestgamespring.model.Story;
 import org.questgame.webquestgamespring.util.StorySerializer;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 import java.io.File;
@@ -17,7 +19,11 @@ import java.time.LocalDateTime;
 
 @Service
 @Slf4j
+@PropertySource("classpath:settings.properties")
 public class StoryFileService {
+
+	@Value("${uploadFolder}")
+	String uploadPath;
 
 	public void downloadStory(HttpSession session, HttpServletResponse resp) throws IOException {
 		log.info("Preparing to download story");
@@ -32,16 +38,15 @@ public class StoryFileService {
 
 	public String uploadStory(HttpServletRequest req, HttpSession session) throws ServletException, IOException {
 		log.info("Sending file on server");
-		String uploadPath = "/Users/llwll/Downloads";
 
-		String uploadedPath = uploadFile(req, uploadPath);
+		String uploadedPath = uploadFile(req);
 		session.setAttribute("story", StorySerializer.getStoryFromFile(uploadedPath));
 
 		log.info("Redirecting to /init");
 		return "forward:/init";
 	}
 
-	private String uploadFile(HttpServletRequest req, String uploadPath) throws ServletException, IOException {
+	public String uploadFile(HttpServletRequest req) throws ServletException, IOException {
 		for (Part part : req.getParts()) {
 			String fileName = part.getSubmittedFileName();
 			if (fileName != null) {
