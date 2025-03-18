@@ -2,7 +2,7 @@ package org.questgame.webquestgamespring.service;
 
 import jakarta.servlet.http.HttpSession;
 import lombok.extern.slf4j.Slf4j;
-import org.questgame.webquestgamespring.model.Story;
+import org.questgame.webquestgamespring.model.dto.Story;
 import org.questgame.webquestgamespring.model.elementHandlers.ElementInitializer;
 import org.questgame.webquestgamespring.model.elementHandlers.ElementManager;
 import org.questgame.webquestgamespring.util.ChatGPTHandler;

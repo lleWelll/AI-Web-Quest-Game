@@ -5,7 +5,7 @@ import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.questgame.webquestgamespring.model.exceptions.ChoiceInitializeException;
-import org.questgame.webquestgamespring.model.Story;
+import org.questgame.webquestgamespring.model.dto.Story;
 import org.questgame.webquestgamespring.model.storyElements.*;
 
 import java.util.HashMap;

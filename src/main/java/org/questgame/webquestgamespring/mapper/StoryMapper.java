@@ -4,7 +4,7 @@ import org.bson.types.Binary;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.Named;
-import org.questgame.webquestgamespring.model.Story;
+import org.questgame.webquestgamespring.model.dto.Story;
 import org.questgame.webquestgamespring.model.entity.StoryEntity;
 import org.questgame.webquestgamespring.model.storyElements.Element;
 import org.questgame.webquestgamespring.util.StorySerializer;

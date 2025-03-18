@@ -3,13 +3,13 @@ spring:
     name: web_quest_game
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${MYSQL_LOCALHOST_URL}/webQuestGame
-    username: ${MYSQL_LOCALHOST_LOGIN}
-    password: ${MYSQL_LOCALHOST_PASSWORD}
+    url: jdbc:mysql://localhost:3306/webQuestGame
+    username: root
+    password: root
 
   jpa:
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     show-sql: true
     properties:
       hibernate:
