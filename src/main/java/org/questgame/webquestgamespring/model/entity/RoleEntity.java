@@ -6,26 +6,16 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "quests")
+@Table(name = "roles")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
-public class StoryEntity {
+@AllArgsConstructor
+public class RoleEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(length = 25)
+	@Column(name = "role_name", length = 50)
 	private String name;
-
-	@Lob
-	private String description;
-
-	@Lob
-	private byte[] quest_name;
-
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-	@JoinColumn(name = "user_id", nullable = false)
-	private UserEntity user;
 }

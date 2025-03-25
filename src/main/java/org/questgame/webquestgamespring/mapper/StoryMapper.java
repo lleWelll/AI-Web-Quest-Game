@@ -21,12 +21,12 @@ public interface StoryMapper {
 	StoryEntity toEntity(Story story);
 
 	@Named("toMap")
-	default Map<String, Element> binaryToMap(Binary elements) {
-		return (Map<String, Element>) StorySerializer.deserializeFromFile(elements.getData());
+	default Map<String, Element> bytesToMap(byte[] elements) {
+		return (Map<String, Element>) StorySerializer.deserializeFromFile(elements);
 	}
 
 	@Named("toBinary")
-	default Binary mapToBinary(Map<String, Element> elements) {
-		return new Binary(StorySerializer.serialize(elements));
+	default byte[] mapToBytes(Map<String, Element> elements) {
+		return StorySerializer.serialize(elements);
 	}
 }

@@ -15,11 +15,9 @@ import java.util.Map;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class Story implements Serializable {
 
 	private Map<String, Element> STORY_ELEMENTS;
 
-	public Story(Map<String, Element> STORY_ELEMENTS) {
-		this.STORY_ELEMENTS = STORY_ELEMENTS;
-	}
 }

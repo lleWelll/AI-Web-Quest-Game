@@ -21,8 +21,6 @@ public class StorySerializer {
 		}
 	}
 
-
-
 	public static void serialize(Story story, OutputStream outputStream) {
 		log.info("Serializing Story on outputStream");
 		try (ObjectOutputStream objectOut = new ObjectOutputStream(outputStream)) {
