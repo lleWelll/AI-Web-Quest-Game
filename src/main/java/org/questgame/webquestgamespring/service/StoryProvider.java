@@ -45,7 +45,17 @@ public class StoryProvider {
 	public void saveStory(StoryNameAndDescription story, HttpSession session) {
 		Story element = (Story) session.getAttribute("story");
 		StoryEntity entity = mapper.storyNameAndDescriptionToEntity(story);
-		entity.setUser((UserEntity) session.getAttribute("currentUser"));
+		entity.setUser(new UserEntity());//(UserEntity) session.getAttribute("currentUser")
+		entity.setQuest(mapper.mapToBytes(element.getSTORY_ELEMENTS()));
+		storyRepository.save(entity);
+	}
+
+	public void saveStory(HttpSession session) {
+		Story element = (Story) session.getAttribute("story");
+		StoryEntity entity = new StoryEntity();
+		entity.setName((String) session.getAttribute("storyName"));
+		entity.setDescription((String) session.getAttribute("storyDescription"));
+		entity.setUser(new UserEntity());//(UserEntity) session.getAttribute("currentUser")
 		entity.setQuest(mapper.mapToBytes(element.getSTORY_ELEMENTS()));
 		storyRepository.save(entity);
 	}

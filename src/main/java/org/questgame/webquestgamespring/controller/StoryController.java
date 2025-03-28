@@ -32,5 +32,10 @@ public class StoryController {
 		provider.saveStory(story, session);
 	}
 
+	@PostMapping("/save")
+	public void saveStory(HttpSession session) {
+		provider.saveStory(session);
+	}
+
 
 }

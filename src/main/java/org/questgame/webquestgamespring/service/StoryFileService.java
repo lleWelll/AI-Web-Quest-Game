@@ -36,17 +36,17 @@ public class StoryFileService {
 		StorySerializer.serialize(story, resp.getOutputStream());
 	}
 
-	public String uploadStory(HttpServletRequest req, HttpSession session) throws ServletException, IOException {
-		log.info("Sending file on server");
-
-		String uploadedPath = uploadFile(req);
-		session.setAttribute("story", StorySerializer.getStoryFromFile(uploadedPath));
-
+	public String uploadStoryAndRedirectIndex(HttpServletRequest req, HttpSession session) throws ServletException, IOException {
+		addStoryToSession(req, session);
 		log.info("Redirecting to /init");
 		return "forward:/init";
 	}
 
-	public String uploadFile(HttpServletRequest req) throws ServletException, IOException {
+	public void uploadStory(HttpServletRequest req, HttpSession session) throws ServletException, IOException {
+		addStoryToSession(req, session);
+	}
+
+	private String uploadFile(HttpServletRequest req, HttpSession session) throws ServletException, IOException {
 		for (Part part : req.getParts()) {
 			String fileName = part.getSubmittedFileName();
 			if (fileName != null) {
@@ -57,5 +57,14 @@ public class StoryFileService {
 		}
 		log.error("There is no file in request");
 		throw new FileNotFoundException("There is no file in request");
+	}
+
+	private void addStoryToSession(HttpServletRequest req, HttpSession session) throws ServletException, IOException {
+		log.info("Sending file on server");
+
+		String uploadedPath = uploadFile(req, session);
+		session.setAttribute("story", StorySerializer.getStoryFromFile(uploadedPath));
+
+		log.info("Story uploaded to session");
 	}
 }
