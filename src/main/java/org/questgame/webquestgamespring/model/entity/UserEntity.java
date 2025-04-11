@@ -10,7 +10,6 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @Data
-@AllArgsConstructor
 @NoArgsConstructor
 public class UserEntity {
 
@@ -31,4 +30,15 @@ public class UserEntity {
 			inverseJoinColumns = @JoinColumn(name = "role_id")
 	)
 	private List<RoleEntity> roles;
+
+	public UserEntity(String username, String password, List<RoleEntity> roles) {
+		this.username = username;
+		this.password = password;
+		this.roles = roles;
+	}
+
+	public UserEntity(String username, String password) {
+		this.username = username;
+		this.password = password;
+	}
 }

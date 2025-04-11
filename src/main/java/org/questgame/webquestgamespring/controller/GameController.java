@@ -6,11 +6,9 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.questgame.webquestgamespring.model.dto.StoryNameAndDescription;
 import org.questgame.webquestgamespring.service.InitializationService;
 import org.questgame.webquestgamespring.service.StoryFileService;
-import org.questgame.webquestgamespring.service.StoryProvider;
-import org.questgame.webquestgamespring.service.StoryService;
+import org.questgame.webquestgamespring.service.StoryManagementService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -23,11 +21,9 @@ import java.io.IOException;
 @RequiredArgsConstructor
 public class GameController {
 
-	private final StoryService storyService;
+	private final StoryManagementService storyManagementService;
 	private final StoryFileService fileService;
 	private final InitializationService initService;
-	private final StoryProvider storyProvider;
-
 
 	@GetMapping("/")
 	public String welcome() {
@@ -46,22 +42,22 @@ public class GameController {
 
 	@GetMapping("/story")
 	public String move(@RequestParam Integer index, Model model, HttpSession session) {
-		return storyService.move(index, model, session);
+		return storyManagementService.move(index, model, session);
 	}
 
 	@GetMapping("/finish")
 	public String finish(Model model, HttpSession session) {
-		return storyService.finish(model, session);
+		return storyManagementService.finish(model, session);
 	}
 
 	@GetMapping("/restart")
 	public String restartGame(HttpSession session) {
-		return storyService.restartGame(session);
+		return storyManagementService.restartGame(session);
 	}
 
 	@GetMapping("/restartStory")
 	public String restartCurrentStory(Model model, HttpSession session) {
-		return storyService.restartCurrentStory(model, session);
+		return storyManagementService.restartCurrentStory(model, session);
 	}
 
 	@GetMapping("/download")

@@ -11,7 +11,7 @@ import org.springframework.ui.Model;
 
 @Service
 @Slf4j
-public class StoryService {
+public class StoryManagementService {
 
 	public String move(Integer index, Model model, HttpSession session) {
 		ElementManager em = getElementManager(session);
