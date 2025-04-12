@@ -28,6 +28,9 @@ public class SecurityConfiguration {
 					form.loginPage("/login");
 					form.defaultSuccessUrl("/", true);
 				})
+				.logout(logout -> {
+					logout.logoutSuccessUrl("/login");
+				})
 				.authorizeHttpRequests(request -> {
 					request.requestMatchers(PathRequest.toStaticResources().atCommonLocations()).permitAll();
 					request.requestMatchers("/login", "/registration").permitAll();

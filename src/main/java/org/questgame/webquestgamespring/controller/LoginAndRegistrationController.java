@@ -27,6 +27,11 @@ public class LoginAndRegistrationController {
 		return "login";
 	}
 
+	@GetMapping("/logout")
+	public String getLogoutPage() {
+		return "logout";
+	}
+
 	@GetMapping("/registration")
 	public String getRegistrationPage(Model model) {
 		model.addAttribute("form", new UserRegistrationForm());
