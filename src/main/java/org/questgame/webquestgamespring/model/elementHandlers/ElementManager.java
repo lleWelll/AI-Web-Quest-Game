@@ -3,7 +3,7 @@ package org.questgame.webquestgamespring.model.elementHandlers;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.extern.slf4j.Slf4j;
-import org.questgame.webquestgamespring.model.dto.Story;
+import org.questgame.webquestgamespring.model.dto.story.Story;
 import org.questgame.webquestgamespring.model.storyElements.*;
 
 import java.util.Stack;

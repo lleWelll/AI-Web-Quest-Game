@@ -4,21 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
-    <link rel="stylesheet" th:href="@{/registrationStyle.css}">
+    <link rel="stylesheet" th:href="@{/css/registrationStyle.css}">
 </head>
 <body>
 <h2 class="outside-text">Registration</h2>
-<form action="/registration" method="POST">
-    <label for="username">Username:</label>
-    <input type="text" id="username" name="username" required><br><br>
-
-    <label for="password">Password:</label>
-    <input type="password" id="password" name="password" required><br><br>
-
-    <label for="confirmPassword">Confirm password:</label>
-    <input type="password" id="confirmPassword" name="confirmPassword" required><br><br>
-
-    <button type="submit">Submit</button>
+<form th:action="@{/registration}" th:object="${form}" method="post">
+    <input type="text" th:field="*{username}" placeholder="Username"/>
+    <input type="password" th:field="*{password}" placeholder="Password"/>
+    <input type="password" th:field="*{passwordConfirmation}" placeholder="Confirm Password"/>
+    <button type="submit">Register</button>
 </form>
 
 <p class="outside-text">Already have an account? <a href="/login">Sign in</a></p>

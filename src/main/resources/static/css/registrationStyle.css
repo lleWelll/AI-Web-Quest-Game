@@ -7,7 +7,7 @@ body {
     justify-content: center;
     height: 100vh;
     margin: 0;
-    background-image: url("images/pixel-soler-background.gif");
+    background-image: url("../images/pixel-soler-background.gif");
     background-size: cover;
 }
 

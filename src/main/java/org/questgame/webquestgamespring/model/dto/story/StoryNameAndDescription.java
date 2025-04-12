@@ -1,4 +1,4 @@
-package org.questgame.webquestgamespring.model.dto;
+package org.questgame.webquestgamespring.model.dto.story;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

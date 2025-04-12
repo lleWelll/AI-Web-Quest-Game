@@ -6,7 +6,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.Part;
 import lombok.extern.slf4j.Slf4j;
-import org.questgame.webquestgamespring.model.dto.Story;
+import org.questgame.webquestgamespring.model.dto.story.Story;
 import org.questgame.webquestgamespring.util.StorySerializer;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;

@@ -1,4 +1,4 @@
-package org.questgame.webquestgamespring.model.dto;
+package org.questgame.webquestgamespring.model.dto.story;
 
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
