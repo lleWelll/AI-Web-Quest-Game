@@ -10,5 +10,8 @@ import java.util.Optional;
 @Repository
 public interface StoryRepository extends JpaRepository<StoryEntity, Long> {
 
-	Optional<List<StoryEntity>> findAllByUserId(Long id);
+	List<StoryEntity> findAllByUserId(Long userId);
+
+	List<StoryEntity> findAllByUserUsername(String username);
+
 }

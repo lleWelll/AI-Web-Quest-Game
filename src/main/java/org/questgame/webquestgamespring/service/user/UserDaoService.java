@@ -21,37 +21,37 @@ public class UserDaoService implements DaoService<UserEntity, UserResponseDto> {
 
 	@Override
 	public UserEntity getEntityById(Long id) {
-		UserEntity entity = userRepository.findById(id).orElseThrow(
-				() -> new UserNotFoundException("User with id " + id + " is not found")
-		);
-		log.info("Returning UserEntity with id {}", id);
-		return entity;
+		log.info("Getting UserEntity with id {}", id);
+		return findById(id);
 	}
 
 	@Override
 	public UserEntity getEntityByName(String name) {
-		UserEntity entity = userRepository.findByUsername(name).orElseThrow(
-				() -> new UserNotFoundException("User with name " + name + " is not found")
-		);
-		log.info("Returning UserEntity with name {}", name);
-		return entity;
+		log.info("Getting UserEntity with name {}", name);
+		return findByUsername(name);
 	}
 
 	@Override
 	public UserResponseDto getById(Long id) {
-		UserEntity entity = userRepository.findById(id).orElseThrow(
-				() -> new UserNotFoundException("User with id " + id + " is not found")
-		);
-		log.info("Returning user with id {}", id);
-		return mapper.toUserResponse(entity);
+		log.info("Getting User with id {}", id);
+		return mapper.toUserResponse(findById(id));
 	}
 
 	@Override
 	public UserResponseDto getByName(String username) {
-		UserEntity entity = userRepository.findByUsername(username).orElseThrow(
+		log.info("Returning user with username {}", username);
+		return mapper.toUserResponse(findByUsername(username));
+	}
+
+	private UserEntity findById(Long id) {
+		return userRepository.findById(id).orElseThrow(
+				() -> new UserNotFoundException("User with id " + id + " is not found")
+		);
+	}
+
+	private UserEntity findByUsername(String username) {
+		return userRepository.findByUsername(username).orElseThrow(
 				() -> new UserNotFoundException("User with username " + username + " is not found")
 		);
-		log.info("Returning user with username {}", username);
-		return mapper.toUserResponse(entity);
 	}
 }

@@ -30,7 +30,7 @@ public class StorySerializer {
 			throw new SerializationException("Error in serializing", e);
 		}
 	}
-	public static Object deserializeFromFile(byte[] bytes) {
+	public static Object deserialize(byte[] bytes) {
 		try (ByteArrayInputStream bis = new ByteArrayInputStream(bytes);
 			 ObjectInputStream ois = new ObjectInputStream(bis)) {
 			return ois.readObject();

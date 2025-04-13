@@ -3,6 +3,7 @@ package org.questgame.webquestgamespring.model.entity;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
 @Table(name = "quests")
@@ -21,10 +22,11 @@ public class StoryEntity {
 	private String description;
 
 	@Lob
-	@Column(name = "quest_binary")
+	@Column(name = "quest_binary", columnDefinition = "MEDIUMBLOB")
+	@ToString.Exclude
 	private byte[] quest;
 
-	@ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@ManyToOne(fetch = FetchType.LAZY)
 	@JoinColumn(name = "user_id", nullable = false)
 	private UserEntity user;
 

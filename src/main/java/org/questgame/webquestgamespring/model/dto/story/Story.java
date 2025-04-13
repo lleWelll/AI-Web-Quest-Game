@@ -1,11 +1,8 @@
 package org.questgame.webquestgamespring.model.dto.story;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import lombok.*;
 import lombok.extern.slf4j.Slf4j;
 import org.questgame.webquestgamespring.model.storyElements.Element;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.io.*;
 import java.util.Map;
@@ -18,6 +15,6 @@ import java.util.Map;
 @AllArgsConstructor
 public class Story implements Serializable {
 
-	private Map<String, Element> STORY_ELEMENTS;
+	private Map<String, Element> storyElements;
 
 }

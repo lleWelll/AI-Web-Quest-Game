@@ -40,7 +40,7 @@ public class ElementManager {
 	}
 
 	public MainSituation getMainSituation() {
-		elementStack.push((MainSituation) STORY.getSTORY_ELEMENTS().get("S1"));
+		elementStack.push((MainSituation) STORY.getStoryElements().get("S1"));
 		log.info("Returning Main Situation ({})", elementStack.peek().getDescription());
 		return elementStack.peek();
 	}
