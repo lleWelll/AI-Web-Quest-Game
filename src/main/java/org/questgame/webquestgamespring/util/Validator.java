@@ -18,7 +18,7 @@ public class Validator {
 		if (StringUtils.containsAny(password, '|', '\\', '/', '-', '+', '=', '.', ',', '^', '`', '~', ' ')) {
 			return false;
 		}
-		return password.length() <= 8;
+		return password.length() >= 8;
 	}
 	public static boolean confirmPassword(String password, String passwordConfirmation) {
 		return password.equals(passwordConfirmation);
