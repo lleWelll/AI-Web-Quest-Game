@@ -6,9 +6,17 @@ Players can register, log in. The application uses Spring Boot as a backend fram
 Security is managed through Spring Security, ensuring protected access to the game content.
 
 ## Features
-- User registration and authentication with custom login form (Spring security)
-- AI-generated quests based on player input (OpenAI, 4o model)
-- Saving player progress in the database (MySQL)
+- User registration and authentication with custom login form
+- AI-generated quests based on player input
+- Saving player progress in the database
+
+## Stack
+| Layer | Technology |
+|:------------|-------------|
+| Backend  | Java, Spring Boot, Hibernate  |
+| Frontend  | Spring mvc, Thymleaf, Html / Css  |
+| Authentication  | Spring Boot (form login)  |
+| Database  | MySQL  |
 
 ## How to Run:
 Clone the repository:
